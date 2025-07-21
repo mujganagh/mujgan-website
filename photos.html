@@ -5,14 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Film Photos | Mujgan Aghazada</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes hue {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    .name-cycle {
+      display: inline-block;
+      animation: hue 8s linear infinite;
+      transition: filter 0.4s ease;
+    }
+    .name-cycle:hover {
+      filter: hue-rotate(180deg);
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
   <!-- Navigation -->
-  <nav class="w-full flex justify-between items-center px-6 py-4 shadow-sm bg-white sticky top-0 z-50">
-    <div class="text-xl font-bold">Mujgan Aghazada</div>
+  <nav class="w-full flex justify-between items-center px-6 py-3 shadow-sm bg-white sticky top-0 z-50">
+    <a href="index.html" class="text-xl font-bold"><span class="name-cycle">Mujgan Aghazada</span></a>
     <div class="space-x-6 text-sm">
       <a href="index.html" class="text-gray-600 hover:text-black">About</a>
       <a href="photos.html" class="text-gray-800 font-semibold">Film Photos</a>
+      <a href="blog.html" class="text-gray-600 hover:text-black">Blog</a>
     </div>
   </nav>
 
@@ -40,31 +55,31 @@
         <img src="img/nyc.jpg" alt="Film Photo 3" data-title="New York" data-desc="Summer 2024. I think the slightly blurry element of this photo describes New York well. When using a film camera, it is important to stay still after taking the photo. My instinct to keep moving after snapping the photo is the epitome of New York. I love you NYC." class="w-full h-auto rounded-lg shadow-sm" />
       </button>
       <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="https://via.placeholder.com/400" alt="Film Photo 4" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
+        <img src="img/centralpark.jpg" alt="Film Photo 4" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
       </button>
       <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="https://via.placeholder.com/400" alt="Film Photo 5" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
+        <img src="img/bryantpark.jpg" alt="Film Photo 5" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
       </button>
       <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="https://via.placeholder.com/400" alt="Film Photo 6" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
+        <img src="img/friends.jpg" alt="Film Photo 6" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
       </button>
     </div>
   </section>
 
   <!-- Lightbox / Modal -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white w-full max-w-7xl md:flex rounded-lg overflow-hidden shadow-2xl">
+    <div class="bg-white w-full max-w-7xl md:flex rounded-lg overflow-hidden shadow-2xl relative">
+      <button id="lightbox-close" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
       <img id="lightbox-img" src="" alt="Expanded view" class="w-full md:w-3/4 object-contain" />
       <div class="p-10 md:w-1/4 flex flex-col">
         <h2 id="lightbox-title" class="text-3xl font-semibold mb-6"></h2>
         <p id="lightbox-desc" class="text-gray-700 whitespace-pre-line flex-1 leading-relaxed"></p>
-        <button id="lightbox-close" class="mt-8 px-5 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 self-start">Close</button>
       </div>
     </div>
   </div>
 
   <footer class="py-6 text-center text-gray-400 text-sm">
-    © 2025 Mujgan Aghazada
+    © 2025 <span class="name-cycle">Mujgan Aghazada</span>
   </footer>
 
   <!-- Lightbox Script -->
@@ -82,7 +97,6 @@
       document.getElementById('lightbox').classList.add('hidden');
     });
 
-    // Close on outside click
     document.getElementById('lightbox').addEventListener('click', (e) => {
       if (e.target.id === 'lightbox') {
         document.getElementById('lightbox').classList.add('hidden');
