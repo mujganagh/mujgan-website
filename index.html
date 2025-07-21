@@ -6,7 +6,6 @@
   <title>Mujgan Aghazada</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Color‑cycling for the name */
     @keyframes hue {
       0% { filter: hue-rotate(0deg); }
       100% { filter: hue-rotate(360deg); }
@@ -22,9 +21,8 @@
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
-  <!-- Navigation -->
   <nav class="w-full flex justify-between items-center px-6 py-3 shadow-sm bg-white sticky top-0 z-50">
-    <div class="text-xl font-bold">Mujgan Aghazada</div>
+    <a href="index.html" class="text-xl font-bold"><span class="name-cycle">Mujgan Aghazada</span></a>
     <div class="space-x-6 text-sm">
       <a href="index.html" class="text-gray-800 font-semibold">About</a>
       <a href="photos.html" class="text-gray-600 hover:text-black">Film Photos</a>
@@ -32,47 +30,36 @@
     </div>
   </nav>
 
-  <!-- Hero / About Section -->
   <section class="py-12 flex flex-col md:flex-row items-center justify-center gap-10 px-6 text-center md:text-left">
     <img src="img/profile.jpg" alt="Mujgan smiling" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover" />
-
     <div class="max-w-xl">
       <h1 class="text-4xl font-bold mb-3">Hi! I'm <span class="name-cycle">Mujgan</span></h1>
       <p class="text-lg text-gray-600 mb-4">Currently: Sales Operations Analyst Intern @ UiPath</p>
-      <p class="text-base text-gray-500">
-        industrial engineering student at purdue with a focus on data science
+      <p class="text-base text-gray-500">industrial engineering student at purdue with a focus on data science</p>
+    </div>
+  </section>
+
+  <section id="experience" class="py-12 px-6 text-center bg-gray-50">
+    <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+    <div class="max-w-2xl mx-auto space-y-4 text-left text-sm">
+      <div><h3 class="font-semibold">Sales Operations Analyst Intern @ UiPath</h3><p class="text-gray-500">Jun 2025 - Aug 2025</p></div>
+      <div><h3 class="font-semibold">Salesforce Implementation Intern @ Purdue</h3><p class="text-gray-500">Feb 2025 - May 2025</p></div>
+      <div><h3 class="font-semibold">Strategy Analyst Intern @ Cummins Inc.</h3><p class="text-gray-500">May 2024 - Aug 2024</p></div>
+      <div><h3 class="font-semibold">Data Science Researcher @ Caterpillar x Purdue</h3><p class="text-gray-500">Aug 2024 - May 2025</p></div>
+      <div><h3 class="font-semibold">Quality Systems Engineering Co‑op @ Amazon</h3><p class="text-gray-500">Jan 2024 - May 2024</p></div>
+      <div><h3 class="font-semibold">Quality Engineering Intern @ Cummins Inc.</h3><p class="text-gray-500">Jun 2023 - Aug 2023</p></div>
+    </div>
+  </section>
+
+  <section id="bio" class="py-12 px-6">
+    <div class="max-w-2xl mx-auto text-left">
+      <h2 class="text-2xl font-semibold mb-4 text-center">a little about me</h2>
+      <p class="text-base text-gray-700">
+        I'm originally from Baku, Azerbaijan, and grew up between cultures and languages—something that has really shaped how I see the world. I’ve always loved tinkering with ideas, whether through data, design, or just plain curiosity. When I’m not deep in spreadsheets or writing SQL queries, I’m usually shooting film, writing poems, or walking too far just to find the right coffee shop. I’m passionate about building things that are both technical and human-centered.
       </p>
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-12 px-6 text-center bg-gray-50">
-    <h2 class="text-2xl font-semibold mb-6">Experience</h2>
-    <div class="max-w-2xl mx-auto space-y-4 text-left text-sm">
-      <div>
-        <h3 class="font-semibold">Sales Operations Analyst Intern @ UiPath</h3>
-        <p class="text-gray-500">Summer 2025</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Strategy Analyst Intern @ Cummins Inc.</h3>
-        <p class="text-gray-500">Summer 2024</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Data Science Researcher @ Caterpillar x Purdue</h3>
-        <p class="text-gray-500">Fall 2024 + Spring 2025</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Quality Systems Engineering Co‑op @ Amazon</h3>
-        <p class="text-gray-500">Spring 2024</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Quality Engineering Intern @ Cummins Inc.</h3>
-        <p class="text-gray-500">Summer 2023</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
   <section id="contact" class="py-12 bg-gray-100 px-6 text-center">
     <h2 class="text-2xl font-semibold mb-4">contact</h2>
     <p class="text-base text-gray-600 mb-3">you can reach me at</p>
@@ -83,7 +70,7 @@
   </section>
 
   <footer class="py-4 text-center text-gray-400 text-xs">
-    © 2025 Mujgan Aghazada
+    © 2025 <span class="name-cycle">Mujgan Aghazada</span>
   </footer>
 </body>
 </html>
