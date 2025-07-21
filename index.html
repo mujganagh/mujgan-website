@@ -6,17 +6,18 @@
   <title>Mujgan Aghazada</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes hue {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .name-cycle {
-      display: inline-block;
-      animation: hue 8s linear infinite;
-      transition: filter 0.4s ease;
-    }
-    .name-cycle:hover {
-      filter: hue-rotate(180deg);
+      background-image: linear-gradient(90deg, #f472b6, #60a5fa, #34d399);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 5s ease infinite;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -31,15 +32,15 @@
   </nav>
 
   <section class="py-12 flex flex-col md:flex-row items-center justify-center gap-10 px-6 text-center md:text-left">
-    <img src="img/profile.jpg" alt="Mujgan smiling" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover" />
+    <img src="img/profile.jpg" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover" />
     <div class="max-w-xl">
-      <h1 class="text-4xl font-bold mb-3">Hi! I'm <span class="name-cycle">Mujgan</span></h1>
+      <h1 class="text-4xl font-bold mb-3">Hi! I'm Mujgan</span></h1>
       <p class="text-lg text-gray-600 mb-4">Currently: Sales Operations Analyst Intern @ UiPath</p>
       <p class="text-base text-gray-500 mb-2">I’m passionate about driving impact for customers using technology.</p>
       <div class="space-x-4 text-sm">
         <a href="mailto:mujganagh@gmail.com" class="text-blue-600 hover:underline">Email</a>
         <a href="https://www.linkedin.com/in/muzhganagh" class="text-blue-600 hover:underline" target="_blank">LinkedIn</a>
-        <a href="Mujgan_Aghazada_Resume.pdf" class="text-blue-600 hover:underline" target="_blank">Resume</a>
+        <a href="resume.pdf" class="text-blue-600 hover:underline" target="_blank">Resume</a>
       </div>
     </div>
   </section>
