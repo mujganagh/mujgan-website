@@ -5,85 +5,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mujgan Aghazada</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body {
+      background-color: #1e2a47;
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
     }
-    .name-cycle {
-      background-image: linear-gradient(90deg, #f472b6, #60a5fa, #34d399);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 5s ease infinite;
-      font-weight: 700;
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+      background-color: #1e2a47;
+    }
+
+    nav .logo {
+      font-weight: 500;
+      color: #eab1d6;
+    }
+
+    nav a {
+      color: #d1d5db;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #eab1d6;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-weight: 500;
+      color: #f9fafb;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-weight: 400;
+      color: #f3f4f6;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #c3b4ec;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      padding-left: 0.5rem;
+      list-style: disc;
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-  <nav class="w-full flex justify-between items-center px-6 py-3 shadow-sm bg-white sticky top-0 z-50">
-    <a href="index.html" class="text-xl font-bold"><span class="name-cycle">Mujgan Aghazada</span></a>
-    <div class="space-x-6 text-sm">
-      <a href="index.html" class="text-gray-800 font-semibold">About</a>
-      <a href="photos.html" class="text-gray-600 hover:text-black">Film Photos</a>
-      <a href="blog.html" class="text-gray-600 hover:text-black">Blog</a>
+
+<body>
+  <nav>
+    <div class="logo">Mujgan Aghazada</div>
+    <div>
+      <a href="index.html">about</a>
+      <a href="photos.html">film photos</a>
+      <a href="blog.html">blog</a>
     </div>
   </nav>
 
-  <section class="py-12 flex flex-col md:flex-row items-center justify-center gap-10 px-6 text-center md:text-left">
-    <img src="img/profile.jpg" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover" />
-    <div class="max-w-xl">
-      <h1 class="text-4xl font-bold mb-3">Hi! I'm Mujgan</span></h1>
-      <p class="text-lg text-gray-600 mb-4">Currently: Sales Operations Analyst Intern @ UiPath</p>
-      <p class="text-base text-gray-500 mb-2">I’m passionate about driving impact for customers using technology.</p>
-      <div class="space-x-4 text-sm">
-        <a href="mailto:mujganagh@gmail.com" class="text-blue-600 hover:underline">Email</a>
-        <a href="https://www.linkedin.com/in/muzhganagh" class="text-blue-600 hover:underline" target="_blank">LinkedIn</a>
-        <a href="Mujgan_Aghazada_Resume.pdf" class="text-blue-600 hover:underline" target="_blank">Resume</a>
-      </div>
-    </div>
-  </section>
+  <main>
+    <h1>hi! i'm mujgan</h1>
+    <p>
+      i’m a builder and tinkerer who loves using data to tell stories and improve processes. i currently work as a sales operations intern at <a href="https://uipath.com" target="_blank">uipath</a>, supporting salesforce automation, gtm strategy, and internal tooling.
+    </p>
 
-  <section id="bio" class="py-12 px-6">
-    <div class="max-w-2xl mx-auto text-left">
-      <p class="text-base text-gray-700">
-        Thank you for visiting my page! I'm Mujgan. I'm passionate about building data-driven, scalable solutions that create real impact for customers and GTM teams. Currently, I’m a Sales Operations Intern at UiPath, where I’m working on sales analytics, GTM strategy, and process automation.
-      </p>
-    </div>
-  </section>
+    <p class="mt-4">
+      contact me at <a href="mailto:mujganagh@gmail.com">mujganagh@gmail.com</a>, or say hi on <a href="https://linkedin.com/in/muzhganagh" target="_blank">linkedin</a>. <a href="Mujgan_Aghazada_Resume.pdf" target="_blank">resume</a> (pdf).
+    </p>
 
-  <section id="experience" class="py-12 px-6 text-center bg-gray-50">
-    <h2 class="text-2xl font-semibold mb-6">Experience</h2>
-    <div class="max-w-2xl mx-auto space-y-4 text-left text-sm">
-      <div><h3 class="font-semibold">Sales Operations Analyst Intern @ UiPath</h3><p class="text-gray-500">Jun 2025 - Aug 2025</p></div>
-      <div><h3 class="font-semibold">Salesforce Implementation Intern @ Purdue</h3><p class="text-gray-500">Feb 2025 - May 2025</p></div>
-      <div><h3 class="font-semibold">Strategy Analyst Intern @ Cummins Inc.</h3><p class="text-gray-500">May 2024 - Aug 2024</p></div>
-      <div><h3 class="font-semibold">Data Science Researcher @ Caterpillar x Purdue</h3><p class="text-gray-500">Aug 2024 - May 2025</p></div>
-      <div><h3 class="font-semibold">Quality Systems Engineering Co‑op @ Amazon</h3><p class="text-gray-500">Jan 2024 - May 2024</p></div>
-      <div><h3 class="font-semibold">Quality Engineering Intern @ Cummins Inc.</h3><p class="text-gray-500">Jun 2023 - Aug 2023</p></div>
-      <div><h3 class="font-semibold">Industrial Engineering @ Purdue University</h3><p class="text-gray-500">Aug 2021 - Dec 2025</p></div>
-    </div>
-  </section>
+    <h2 class="mt-12 underline">experience</h2>
+    <ul>
+      <li>sales ops intern @ uipath (2025)</li>
+      <li>salesforce intern @ purdue (2025)</li>
+      <li>strategy & analytics intern @ cummins (2024)</li>
+      <li>engineering co-op @ amazon (2024)</li>
+      <li>data science researcher @ caterpillar x purdue (2024–2025)</li>
+    </ul>
 
-  <section id="bio" class="py-12 px-6">
-    <div class="max-w-2xl mx-auto text-left">
-      <p class="text-base text-gray-700">
-        I'm originally from Baku, Azerbaijan, and grew up between cultures and languages—something that has really shaped how I see the world. I’ve always loved tinkering with technology. When I’m not deep in writing SQL queries or Salesforce, I’m usually:
-      </p>
-      <ul class="list-disc pl-5 text-base text-gray-700 space-y-1">
-        <p></p>
-        <li>taking film photos</li>
-        <li>cooking (probably peri-peri chicken)</li>
-        <li>eating dark chocolate</li>
-        <li>trying to make the perfect iced latte</li>
-        <li>fighting for my life in a corepower workout class</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="py-4 text-center text-gray-400 text-xs">
-    © 2025 <span>Mujgan Aghazada</span>
-  </footer>
+    <h2 class="mt-12 underline">origin story</h2>
+    <p>
+      born in baku. grew up between cultures. now i study industrial engineering & data science at purdue. i love clean design, clever solutions, and iced lattes.
+    </p>
+    <ul class="mt-2">
+      <li>taking film photos</li>
+      <li>cooking (peri-peri chicken supremacy)</li>
+      <li>solving logic puzzles & crosswords</li>
+      <li>perfecting the art of the iced latte</li>
+      <li>surviving corepower workout classes</li>
+    </ul>
+  </main>
 </body>
 </html>

@@ -5,104 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Film Photos | Mujgan Aghazada</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body {
+      background-color: #1e2a47;
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
     }
-    .name-cycle {
-      background-image: linear-gradient(90deg, #f472b6, #60a5fa, #34d399);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 5s ease infinite;
-      font-weight: 700;
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-weight: 500;
+      color: #eab1d6;
+    }
+
+    nav a {
+      color: #d1d5db;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #eab1d6;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #6b7280;
+      padding-bottom: 0.25rem;
+      color: #f9fafb;
+    }
+
+    .photo img {
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .photo img:hover {
+      filter: grayscale(0%);
     }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-  <!-- Navigation -->
-  <nav class="w-full flex justify-between items-center px-6 py-3 shadow-sm bg-white sticky top-0 z-50">
-    <a href="index.html" class="text-xl font-bold"><span class="name-cycle">Mujgan Aghazada</span></a>
-    <div class="space-x-6 text-sm">
-      <a href="index.html" class="text-gray-600 hover:text-black">About</a>
-      <a href="photos.html" class="text-gray-800 font-semibold">Film Photos</a>
-      <a href="blog.html" class="text-gray-600 hover:text-black">Blog</a>
+<body>
+  <nav>
+    <div class="logo">Mujgan Aghazada</div>
+    <div>
+      <a href="index.html">about</a>
+      <a href="photos.html">film photos</a>
+      <a href="blog.html">blog</a>
     </div>
   </nav>
 
-  <!-- Gallery Header -->
-  <section class="py-16 text-center px-6">
-    <h1 class="text-4xl font-bold mb-4">hello!</h1>
-    <p class="text-gray-500 max-w-xl mx-auto">
-      click any photo to learn its story.
-    </p>
-  </section>
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="underline">film photos</h1>
+    <p class="text-gray-400 mb-8">a few favorite moments i've captured on film.</p>
 
-  <!-- Simple Photo Grid -->
-  <section class="px-6 pb-20">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <!-- Photo 1 -->
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/test1.jpg" alt="Film Photo 1" data-title="San Diego, California" data-desc="Girls trip to California. Coffee, food, shopping, tanning: how could it get better? I decided I loved San Diego." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
-
-      <!-- Placeholder photos (replace as you add more) -->
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/inandout.jpg" alt="Film Photo 2" data-title="In n Out" data-desc="I think my soul ascended. Best burger ever. And I remade it when I got back to Purdue. I'll share the deets soon." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/nyc.jpg" alt="Film Photo 3" data-title="New York" data-desc="Summer 2024. I think the slightly blurry element of this photo describes New York well. When using a film camera, it is important to stay still after taking the photo. My instinct to keep moving after snapping the photo is the epitome of New York. I love you NYC." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/centralpark.jpg" alt="Central Park" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/bryantpark.jpg" alt="Bryant Park" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
-      <button class="focus:outline-none" onclick="openLightbox(this)">
-        <img src="img/friends.jpg" alt="Film Photo 6" data-title="Untitled" data-desc="Write something about this photo." class="w-full h-auto rounded-lg shadow-sm" />
-      </button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Replace with your own images -->
+      <a href="img/test1.jpg" target="_blank" class="photo block">
+        <img src="img/test1.jpg" alt="Film Photo 1" class="w-full h-auto rounded shadow-sm" />
+      </a>
+      <a href="img/inandout.jpg" target="_blank" class="photo block">
+        <img src="img/inandout.jpg" alt="In n Out" class="w-full h-auto rounded shadow-sm" />
+      </a>
+      <a href="img/nyc.jpg" target="_blank" class="photo block">
+        <img src="img/nyc.jpg" alt="New York" class="w-full h-auto rounded shadow-sm" />
+      </a>
+      <a href="img/centralpark.jpg" target="_blank" class="photo block">
+        <img src="img/centralpark.jpg" alt="Central Park" class="w-full h-auto rounded shadow-sm" />
+      </a>
+      <a href="img/bryantpark.jpg" target="_blank" class="photo block">
+        <img src="img/bryantpark.jpg" alt="Bryant Park" class="w-full h-auto rounded shadow-sm" />
+      </a>
+      <a href="img/friends.jpg" target="_blank" class="photo block">
+        <img src="img/friends.jpg" alt="Friends" class="w-full h-auto rounded shadow-sm" />
+      </a>
     </div>
-  </section>
-
-  <!-- Lightbox / Modal -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white w-full max-w-7xl md:flex rounded-lg overflow-hidden shadow-2xl relative">
-      <button id="lightbox-close" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
-      <img id="lightbox-img" src="" alt="Expanded view" class="w-full md:w-3/4 object-contain" />
-      <div class="p-10 md:w-1/4 flex flex-col">
-        <h2 id="lightbox-title" class="text-3xl font-semibold mb-6"></h2>
-        <p id="lightbox-desc" class="text-gray-700 whitespace-pre-line flex-1 leading-relaxed"></p>
-      </div>
-    </div>
-  </div>
-
-  <footer class="py-6 text-center text-gray-400 text-sm">
-    © 2025 <span class="name-cycle">Mujgan Aghazada</span>
-  </footer>
-
-  <!-- Lightbox Script -->
-  <script>
-    function openLightbox(btn) {
-      const img = btn.querySelector('img');
-      const lightbox = document.getElementById('lightbox');
-      document.getElementById('lightbox-img').src = img.src;
-      document.getElementById('lightbox-title').textContent = img.dataset.title || '';
-      document.getElementById('lightbox-desc').textContent = img.dataset.desc || '';
-      lightbox.classList.remove('hidden');
-    }
-
-    document.getElementById('lightbox-close').addEventListener('click', () => {
-      document.getElementById('lightbox').classList.add('hidden');
-    });
-
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox') {
-        document.getElementById('lightbox').classList.add('hidden');
-      }
-    });
-  </script>
+  </main>
 </body>
 </html>
