@@ -97,24 +97,41 @@
     <p class="text-gray-400 mb-8">some essays, some thoughts, maybe a poem or two.</p>
 
     <!-- Example Blog Post -->
-    <article class="mb-8">
-      <h2>how i fell in love with automation</h2>
-      <time datetime="2025-07-30">July 30, 2025</time>
-      <p>
-        it started with a bug. then a script. then a late-night dashboard idea. the rest is history...
-      </p>
-      <a href="#" class="read-link">read more →</a>
-    </article>
+    <div class="mb-12">
+  <p class="text-sm text-gray-500 mb-1">july 30, 2025</p>
+  <a href="blog-posts/automation.html" class="text-lg text-[#c4b7dc] hover:text-[#d6cbed] hover:underline">how i fell in love with automation →</a>
+  <p>it started with a bug. then a script. then a late-night dashboard idea. the rest is history...</p>
+</div>
 
-    <!-- Add more blog entries here -->
-    <article class="mb-8">
-      <h2>in defense of overengineering my iced lattes</h2>
-      <time datetime="2025-07-15">July 15, 2025</time>
-      <p>
-        7 variables. 3 test batches. 1 perfect morning ritual.
-      </p>
-      <a href="#" class="read-link">read more →</a>
-    </article>
+<div class="mb-12">
+  <p class="text-sm text-gray-500 mb-1">july 15, 2025</p>
+  <a href="blog-posts/iced-latte.html" class="text-lg text-[#c4b7dc] hover:text-[#d6cbed] hover:underline">in defense of overengineering my iced lattes →</a>
+  <p>7 variables. 3 test batches. 1 perfect morning ritual.</p>
+</div>
+
+    <!-- Blog post list rendered dynamically -->
+<div id="blog-list"></div>
+
+<script>
+  fetch('posts.json')
+    .then(response => response.json())
+    .then(posts => {
+      const container = document.getElementById('blog-list');
+      posts.forEach(post => {
+        const postEl = document.createElement('div');
+        postEl.className = 'mb-12';
+
+        postEl.innerHTML = `
+          <p class="text-sm text-gray-500 mb-1">${post.date}</p>
+          <a href="blog-posts/${post.link}" class="text-lg text-[#c4b7dc] hover:text-[#d6cbed] hover:underline">${post.title} →</a>
+          <p>${post.excerpt}</p>
+        `;
+
+        container.appendChild(postEl);
+      });
+    });
+</script>
+
   </main>
 </body>
 </html>
