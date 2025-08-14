@@ -7,48 +7,51 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/favicon.png">
+
   <style>
-    body {
-      background-color: #1e2a47;
-      color: #d1d5db;
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      line-height: 1.75;
-    }
+  body {
+    background-color: #1e2a47;
+    color: #d1d5db;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.875rem;
-      padding: 1rem 2rem;
-    }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+  }
 
-    nav .logo {
-      font-weight: 500;
-      color: #eab1d6;
-    }
+  nav .logo {
+    font-weight: 500;
+    color: #eab1d6;
+  }
 
-    nav a {
-      color: #d1d5db;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+  nav a {
+    color: #d1d5db;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
 
-    nav a:hover {
-      color: #eab1d6;
-    }
+  nav a:hover {
+    color: #eab1d6;
+  }
 
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #6b7280;
-      padding-bottom: 0.25rem;
-      color: #f9fafb;
-    }
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #6b7280;
+    padding-bottom: 0.25rem;
+    color: #f9fafb;
+  }
 
+  /* Grayscale hover only on desktop/laptop with mouse or stylus */
+  @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
     .photo img {
       filter: grayscale(100%);
       transition: filter 0.3s ease;
@@ -57,7 +60,9 @@
     .photo img:hover {
       filter: grayscale(0%);
     }
-  </style>
+  }
+</style>
+
 </head>
 <body>
   <nav>
