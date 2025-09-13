@@ -4,14 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Mujgan Aghazada</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- 1) Set theme class ASAP -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
+    })();
+  </script>
+
+  <!-- 2) Tailwind CDN with preflight disabled (prevents late resets) -->
+  <script>
+    window.tailwind = { config: { corePlugins: { preflight: false } } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 3) (Optional) Inter with minimal reflow -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+  </noscript>
+
+  <!-- 4) Shared theme tokens + pill styles -->
+  <link rel="stylesheet" href="/assets/theme.css">
+
   <style>
+    /* Base stack + stabilizers */
+    html, body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size-adjust: 0.52;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Page styles using theme tokens */
     body {
-      background-color: #1e2a47;
-      color: #d1d5db;
-      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       font-weight: 300;
       line-height: 1.75;
     }
@@ -22,32 +58,26 @@
       align-items: center;
       font-size: 0.875rem;
       padding: 1rem 2rem;
+      background-color: var(--bg-color);
     }
-
-    nav .logo {
-      font-weight: 500;
-      color: #eab1d6;
-    }
-
+    nav .logo { font-weight: 500; color: var(--accent-color); }
     nav a {
-      color: #d1d5db;
+      color: var(--text-color);
       margin-left: 1.5rem;
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    nav a:hover {
-      color: #eab1d6;
-    }
+    nav a:hover { color: var(--accent-color); }
 
     h1 {
       font-size: 1.75rem;
       font-weight: 500;
       margin-bottom: 2rem;
-      border-bottom: 1px solid #6b7280;
+      border-bottom: 1px solid var(--border-color);
       padding-bottom: 0.25rem;
-      color: #f9fafb;
+      color: var(--text-color);
     }
+    .underline { text-underline-offset: 4px; text-decoration-color: var(--border-color); }
 
     ul {
       list-style: disc;
@@ -68,10 +98,13 @@
   </nav>
 
   <main class="max-w-3xl mx-auto px-6 py-12">
-    <h1 class="underline">projects</h1>
-    <p class="mb-6">things i've built and enjoyed working on:</p>
+    <h1 class="underline">Projects</h1>
+    <p class="mb-6" style="color: var(--muted-color);">Things I've built and enjoyed working on:</p>
 
-    <p class="italic text-gray-400 mt-4">coming soon :)</p>
+    <p class="mt-4" style="font-style: italic; color: var(--muted-color);">coming soon :)</p>
   </main>
+
+  <!-- Shared theme logic (injects bottom-right toggle if missing) -->
+  <script src="/assets/theme.js"></script>
 </body>
 </html>

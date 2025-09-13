@@ -4,80 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mujgan Aghazada</title>
+
+  <!-- 1) set theme class ASAP to avoid flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
+    })();
+  </script>
+
+  <!-- 2) Tailwind CDN with preflight disabled (prevents layout shift) -->
+  <script>
+    window.tailwind = { config: { corePlugins: { preflight: false } } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- 3) Fonts: preconnect + preload + display=optional to reduce reflow -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+  </noscript>
+
+  <!-- 4) shared theme tokens + pill styles -->
+  <link rel="stylesheet" href="/assets/theme.css">
+
   <style>
+    /* base font stack + stabilizers */
+    html, body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size-adjust: 0.52;          /* stabilize relative size between fallback and Inter */
+      -webkit-text-size-adjust: 100%;  /* avoid iOS auto-zooming text */
+    }
+
+    /* your page styles, using theme tokens */
     body {
-      background-color: #1e2a47;
-      color: #d1d5db;
-      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       font-weight: 300;
       line-height: 1.75;
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.875rem;
-      padding: 1rem 2rem;
-      background-color: #1e2a47;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:0.875rem; padding:1rem 2rem; background-color:var(--bg-color);
     }
-
-    nav .logo {
-      font-weight: 500;
-      color: #eab1d6;
-    }
-
+    nav .logo { font-weight:500; color:var(--accent-color); }
     nav a {
-      color: #d1d5db;
+      color: var(--text-color);
       margin-left: 1.5rem;
-      text-decoration: none;
+      text-decoration:none;
       transition: color 0.2s;
     }
+    nav a:hover { color: var(--accent-color); }
 
-    nav a:hover {
-      color: #eab1d6;
-    }
+    main { max-width:700px; margin:0 auto; padding:2rem; }
+    h1 { font-weight:500; color:var(--text-color); font-size:2rem; margin-bottom:1rem; }
+    h2 { font-weight:400; color:var(--text-color); font-size:1.5rem; margin-top:3rem; margin-bottom:1rem; }
+    .underline { text-underline-offset: 4px; text-decoration-color: var(--border-color); }
 
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    main a { color:var(--link-color); text-decoration:none; transition:color .2s; }
+    main a:hover { text-decoration:underline; }
+    ul { margin-left:1.5rem; padding-left:.5rem; list-style:disc; }
 
-    h1 {
-      font-weight: 500;
-      color: #f9fafb;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-weight: 400;
-      color: #f3f4f6;
-      font-size: 1.5rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    main a {
-      color: #c2aedb;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    main a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      margin-left: 1.5rem;
-      padding-left: 0.5rem;
-      list-style: disc;
-    }
+    /* keep the pill themed via tokens; actual styles live in /assets/theme.css */
   </style>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 
 <body>
@@ -92,53 +91,48 @@
   </nav>
 
   <main>
-    <h1>hi! i'm mujgan</h1>
-    <p class="mt-4">
-      i love tech. i love talking to people. and i love solving people’s problems with tech.
-    </p>
-    <p class="mt-4">
-      i’m wired to find fulfillment in picking up new skills through real problems — whether it’s writing a python script on the fly to build data pipelines, analyzing salesforce metadata, or writing solution design documents for automation solutions.
-    </p>
+  <h1>Hi! I'm Mujgan</h1>
+  <p class="mt-4">I’m passionate about solving complex challenges and turning them into scalable solutions that deliver real customer impact.</p>
+  <p class="mt-4">I find fulfillment in learning by doing and wearing many hats — whether it’s scripting with Python to build data pipelines, troubleshooting in Salesforce to support teammates, or drafting solution design documents for automation.</p>
+  <p class="mt-4">I’ve supported GTM teams at UiPath, presented dashboards to senior leadership at Cummins, and driven process improvements across sales and engineering. I enjoy presenting to audiences, understanding pain points, and translating technical insights into clear, actionable solutions.</p>
+  <p class="mt-4">I’m excited about roles where I can combine my curiosity, problem-solving, and customer obsession to drive real impact.</p>
+    <!-- old writing
+    <p class="mt-4">I’m wired to find fulfillment in picking up new skills through real problems — whether it’s writing a python script on the fly to build data pipelines, analyzing salesforce metadata, or writing solution design documents for automation solutions.</p>
+    <p>i’ve supported GTM and presales teams at uipath, presented dashboards i built to senior leadership at cummins, and helped align technical tools with business needs. i enjoy presenting to audiences, understanding pain-points, and turning technical insights into actionable solutions.</p>
+    <p class="mt-4">i’m excited about roles like sales engineering and technology consulting, where i can combine my love for problem-solving, curiosity, and customer obsession to drive real impact.</p>
+    -->
+    <p class="mt-4">Feel free to reach out!</p>
     <p>
-      i’ve supported GTM and presales teams at uipath, presented dashboards i built to senior leadership at cummins, and helped align technical tools with business needs. i enjoy presenting to audiences, understanding pain-points, and turning technical insights into actionable solutions.
-    </p>
-    <p class="mt-4">
-      i’m excited about roles like sales engineering and technology consulting, where i can combine my love for problem-solving, curiosity, and customer obsession to drive real impact.
-    </p>
-    <p class="mt-4">
-      feel free to reach out!
-    </p>
-    <p>
-      <a href="mailto:mujganagh@gmail.com">mujganagh@gmail.com</a> | <a href="https://linkedin.com/in/muzhganagh" target="_blank">linkedin</a> | <a href="Mujgan_Aghazada_Resume.pdf" target="_blank">resume</a>
+      <a href="mailto:mujganagh@gmail.com">mujganagh@gmail.com</a> |
+      <a href="https://linkedin.com/in/muzhganagh" target="_blank" rel="noopener">LinkedIn</a> |
+      <a href="Mujgan_Aghazada_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </p>
 
-    <h2 class="mt-12 underline">experience</h2>
-    <p>
-      quick summary of where i've been:
-    </p>
+    <h2 class="mt-12 underline">Where I've Been:</h2>
     <ul>
-      <li>- sales operations analyst @ uipath (summer 2025)</li>
-      <li>- salesforce implementation @ purdue (spring 2025)</li>
-      <li>- data science researcher @ caterpillar x purdue (fall 2024 + spring 2025)</li>
-      <li>- strategy analyst @ cummins (summer 2024)</li>
-      <li>- quality systems engineer @ amazon robotics (spring 2024)</li>
-      <li>- quality engineer @ cummins (summer 2023)</li>
+      <li>- Sales Operations Analyst @ UiPath (Summer 2025)</li>
+      <li>- Salesforce Implementation @ Purdue (Spring 2025)</li>
+      <li>- Data science researcher @ Caterpillar x Purdue (Fall 2024 + Spring 2025)</li>
+      <li>- Strategy Analyst @ cummins (Summer 2024)</li>
+      <li>- Quality Systems Engineer @ Amazon Robotics (Spring 2024)</li>
+      <li>- Quality Engineer @ Cummins (Summer 2023)</li>
     </ul>
 
-    <h2 class="mt-12 underline">origin story</h2>
-    <p>
-      born in baku. now i study industrial engineering at purdue with a focus in data science.
-    </p>
-    <p class="mt-4">
-      some of my interests:
-    </p>
+    <h2 class="mt-12 underline">Some of My Interests:</h2>
     <ul class="mt-2">
-      <li>- taking film photos (<a href="/photos/">check them out!</a>)</li>
-      <li>- cooking (peri-peri chicken, rib-eye steak, trout)</li>
-      <li>- playing tennis or walking an unnecessary amount </li>
-      <li>- making a perfect iced latte</li>
-      <li>- fighting for my life in corepower workout classes</li>
+      <li>- Taking <a href="/photos/">film photos</a></li>
+      <li>- Cooking (peri-peri chicken, rib-eye steak, trout)</li>
+      <li>- Playing tennis (unfortunately recently converted to pickleball) or walking an unnecessary amount </li>
+      <li>- Music (Jazz, House, Electronic, etc.)</li>
     </ul>
   </main>
+
+  <!-- bottom-right theme pill (no emojis) -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <span id="theme-text">toggle theme</span>
+  </button>
+
+  <!-- shared theme logic -->
+  <script src="/assets/theme.js"></script>
 </body>
 </html>

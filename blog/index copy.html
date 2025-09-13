@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Mujgan Aghazada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    body {
+      background-color: #1e2a47;
+      color: #d1d5db;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-weight: 500;
+      color: #eab1d6;
+    }
+
+    nav a {
+      color: #d1d5db;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #eab1d6;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #6b7280;
+      padding-bottom: 0.25rem;
+      color: #f9fafb;
+    }
+
+    article {
+      border: 1px solid #374151;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      transition: background-color 0.3s;
+    }
+
+    article:hover {
+      background-color: #2a395e;
+    }
+
+    article h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #f3f4f6;
+      margin-bottom: 0.25rem;
+    }
+
+    article time {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    a.read-link {
+      color: #c3b4ec;
+    }
+
+    a.read-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Mujgan Aghazada</div>
+    <div>
+      <a href="/">about</a>
+      <a href="/projects/">projects</a>
+      <a href="/photos/">film photos</a>
+      <a href="/blog/">blog</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="underline">blog</h1>
+    <p class="text-gray-400 mb-8">word vomit!</p>
+
+    <!-- Blog post list rendered dynamically -->
+<div id="blog-list"></div>
+
+<script>
+  fetch('posts.json')
+    .then(response => response.json())
+    .then(posts => {
+      const container = document.getElementById('blog-list');
+      posts.forEach(post => {
+        const postEl = document.createElement('div');
+        postEl.className = 'mb-12';
+
+        postEl.innerHTML = `
+          <p class="text-sm text-gray-500 mb-1">${post.date}</p>
+          <a href="${post.link}" class="text-lg text-[#c4b7dc] hover:text-[#d6cbed] hover:underline">${post.title} →</a>
+          <p>${post.excerpt}</p>
+        `;
+
+        container.appendChild(postEl);
+      });
+    });
+</script>
+
+  </main>
+</body>
+</html>

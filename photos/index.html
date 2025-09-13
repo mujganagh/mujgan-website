@@ -4,65 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Film Photos | Mujgan Aghazada</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/favicon.png">
 
+  <!-- 1) set theme class ASAP -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
+    })();
+  </script>
+
+  <!-- 2) Tailwind CDN with preflight disabled to avoid late resets -->
+  <script>
+    window.tailwind = { config: { corePlugins: { preflight: false } } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 3) (Optional) Inter webfont with minimal reflow -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+  </noscript>
+
+  <!-- 4) shared theme tokens + pill styles -->
+  <link rel="stylesheet" href="/assets/theme.css">
+
   <style>
-  body {
-    background-color: #1e2a47;
-    color: #d1d5db;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-    padding: 1rem 2rem;
-  }
-
-  nav .logo {
-    font-weight: 500;
-    color: #eab1d6;
-  }
-
-  nav a {
-    color: #d1d5db;
-    margin-left: 1.5rem;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  nav a:hover {
-    color: #eab1d6;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #6b7280;
-    padding-bottom: 0.25rem;
-    color: #f9fafb;
-  }
-
-  /* Grayscale hover only on desktop/laptop with mouse or stylus */
-  @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
-    .photo img {
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
+    /* base stack + stabilizers */
+    html, body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size-adjust: 0.52;
+      -webkit-text-size-adjust: 100%;
     }
 
-    .photo img:hover {
-      filter: grayscale(0%);
+    /* page styles using theme tokens */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-weight: 300;
+      line-height: 1.75;
     }
-  }
-</style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+      background-color: var(--bg-color);
+    }
+    nav .logo { font-weight: 500; color: var(--accent-color); }
+    nav a {
+      color: var(--text-color);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent-color); }
 
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      color: var(--text-color);
+    }
+    .underline { text-underline-offset: 4px; text-decoration-color: var(--border-color); }
+
+    /* Grayscale hover only on devices with hover + wider screens */
+    @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+      .photo img {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+      .photo img:hover { filter: grayscale(0%); }
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -76,16 +100,18 @@
   </nav>
 
   <main class="max-w-6xl mx-auto px-6 py-12">
-    <h1 class="underline">film photos</h1>
-    <p class="text-gray-400 mb-8">a few favorite moments i've captured on film. hover over the image to bring colour to it!</p>
+    <h1 class="underline">Some of my favorite photos I've taken!</h1>
+    <p class="mb-8" style="color: var(--muted-color);">
+      I use a Minolta X-700, usually with Kodak Gold 200. I develop at a lab in Brooklyn, NY called "Exposure Therapy".
+    </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <!-- replacing with my pics -->
+      <!-- your images -->
       <a href="img/test1.jpg" target="_blank" class="photo block">
         <img src="img/test1.jpg" alt="Film Photo 1" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/inandout.jpg" target="_blank" class="photo block">
-        <img src="img/inandout.jpg" alt="In n Out" class="w-full h-auto rounded shadow-sm" />
+        <img src="img/inandout.jpg" alt="In-N-Out" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/nyc.jpg" target="_blank" class="photo block">
         <img src="img/nyc.jpg" alt="New York" class="w-full h-auto rounded shadow-sm" />
@@ -100,14 +126,16 @@
         <img src="img/sandiego.jpg" alt="San Diego" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/sandiego2.jpg" target="_blank" class="photo block">
-        <img src="img/sandiego2.jpg" alt="San Diego" class="w-full h-auto rounded shadow-sm" />
+        <img src="img/sandiego2.jpg" alt="San Diego (2)" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/soho.jpg" target="_blank" class="photo block">
-        <img src="img/soho.jpg" alt="San Diego" class="w-full h-auto rounded shadow-sm" />
+        <img src="img/soho.jpg" alt="SoHo" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/church.jpg" target="_blank" class="photo block">
-        <img src="img/church.jpg" alt="San Diego" class="w-full h-auto rounded shadow-sm" />
+        <img src="img/church.jpg" alt="Church" class="w-full h-auto rounded shadow-sm" />
       </a>
+
+      <!-- the rest -->
       <a href="img/img1.jpg" target="_blank" class="photo block">
         <img src="img/img1.jpg" alt="img1" class="w-full h-auto rounded shadow-sm" />
       </a>
@@ -126,8 +154,9 @@
       <a href="img/img6.jpg" target="_blank" class="photo block">
         <img src="img/img6.jpg" alt="img6" class="w-full h-auto rounded shadow-sm" />
       </a>
+      <!-- NOTE: this one pointed at img1.jpg; I assume you meant img7.jpg -->
       <a href="img/img7.jpg" target="_blank" class="photo block">
-        <img src="img/img1.jpg" alt="img7" class="w-full h-auto rounded shadow-sm" />
+        <img src="img/img7.jpg" alt="img7" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/img8.jpg" target="_blank" class="photo block">
         <img src="img/img8.jpg" alt="img8" class="w-full h-auto rounded shadow-sm" />
@@ -147,7 +176,7 @@
       <a href="img/img13.jpg" target="_blank" class="photo block">
         <img src="img/img13.jpg" alt="img13" class="w-full h-auto rounded shadow-sm" />
       </a>
-            <a href="img/img14.jpg" target="_blank" class="photo block">
+      <a href="img/img14.jpg" target="_blank" class="photo block">
         <img src="img/img14.jpg" alt="img14" class="w-full h-auto rounded shadow-sm" />
       </a>
       <a href="img/img15.jpg" target="_blank" class="photo block">
@@ -155,5 +184,8 @@
       </a>
     </div>
   </main>
+
+  <!-- shared theme logic (injects the bottom-right toggle if not present) -->
+  <script src="/assets/theme.js"></script>
 </body>
 </html>

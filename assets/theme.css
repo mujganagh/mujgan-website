@@ -1,0 +1,33 @@
+/* Color tokens (dark by default) */
+:root {
+  --bg-color:#1e2a47; --text-color:#d1d5db; --muted-color:#9ca3af;
+  --accent-color:#eab1d6; --link-color:#c2aedb; --border-color:#6b7280; --hover:#2a395e;
+}
+.dark-theme {
+  --bg-color:#1e2a47; --text-color:#d1d5db; --muted-color:#9ca3af;
+  --accent-color:#eab1d6; --link-color:#c2aedb; --border-color:#6b7280; --hover:#2a395e;
+}
+.light-theme {
+  --bg-color:#ffffff; --text-color:#1f2937; --muted-color:#6b7280;
+  --accent-color:#7c3aed; --link-color:#6d28d9; --border-color:#e5e7eb; --hover:#f3f4f6;
+}
+
+/* Bottom-right toggle pill */
+.theme-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .8rem;
+  padding: .3rem .6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.theme-toggle:hover { background: var(--hover); }
