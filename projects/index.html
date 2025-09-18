@@ -101,8 +101,37 @@
     <h1 class="underline">Projects</h1>
     <p class="mb-6" style="color: var(--muted-color);">Things I've built and enjoyed working on:</p>
 
-    <p class="mt-4" style="font-style: italic; color: var(--muted-color);">coming soon :)</p>
+    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover-color)] transition">
+      <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
+        Hiresky — Automated Job Board Monitor
+      </h2>
+      <p class="mb-4" style="color: var(--text-color);">
+        Hiresky is an automation tool that monitors company career boards and sends real-time alerts for new job postings.
+        It integrates with multiple ATS APIs, filters jobs by role and location, and notifies users through Slack.
+        The system runs automatically every morning via macOS scheduling.
+      </p>
+
+      <ul class="list-disc list-inside space-y-1" style="color: var(--muted-color); font-size: 0.9rem;">
+        <li>Multi-ATS integration: Fetches live postings from Greenhouse, Lever, and Ashby APIs</li>
+        <li>Configurable filters: YAML-driven role, company, and location selectors</li>
+        <li>State management: Tracks seen jobs in <code>state.json</code> to avoid duplicates</li>
+        <li>Automated notifications: Sends formatted job postings into Slack via webhooks</li>
+        <li>Daily scheduling: LaunchAgents + pmset wake-up for 10:00 AM runs</li>
+        <li>Data logging: Saves results into CSV (<code>matches.csv</code>) and logs for auditing</li>
+      </ul>
+
+        <!-- Screenshot -->
+      <div class="my-4">
+        <img src="screenshot1.png" alt="Hiresky Slack Alert Screenshot" class="rounded shadow-md" />
+      </div>
+
+      <p class="mt-4 italic" style="color: var(--muted-color);">
+        Impact: Eliminated manual checks across 50+ career sites, ensured same-day awareness of new postings,
+        and created a reusable framework for tracking 100+ SaaS/tech companies.
+      </p>
+    </article>
   </main>
+
 
   <!-- Shared theme logic (injects bottom-right toggle if missing) -->
   <script src="/assets/theme.js"></script>
