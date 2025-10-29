@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limitations Are Self-Imposed | Mujgan Aghazada</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Theme setup -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
+    })();
+  </script>
+  <script>
+    window.tailwind = { config: { corePlugins: { preflight: false } } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts + theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+  </noscript>
+  <link rel="stylesheet" href="/assets/theme.css">
+
+  <style>
+    html, body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+      background-color: var(--bg-color);
+    }
+    nav .logo { font-weight: 500; color: var(--accent-color); }
+    nav a {
+      color: var(--text-color);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent-color); }
+    main { max-width: 48rem; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--border-color);
+    }
+    time {
+      font-size: 0.875rem;
+      color: var(--muted-color);
+    }
+    section { margin-top: 2rem; }
+    em { font-style: italic; }
+    strong { font-weight: 500; color: var(--accent-color); }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">Mujgan Aghazada</div>
+    <div>
+      <a href="/">about</a>
+      <a href="/projects/">projects</a>
+      <a href="/photos/">film photos</a>
+      <a href="/blog/">blog</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Limitations Are Self-Imposed</h1>
+    <time datetime="2025-07-30">july 30, 2025</time>
+
+    <section>
+      <p class="mt-6">I hate the phrase <em>“I can’t.”</em> Let me tell you why.</p>
+      <p class="mt-4">This aversion comes from a lifelong frustration with predetermined boundaries—the closed-system scripts that dictate what you're supposed to do and who you're supposed to be. Growing up, any deviation felt like ruining a communal play, an outdated script everyone kept performing out of habit. I wanted to step off the stage and draw my own path.</p>
+    </section>
+
+    <section>
+      <p class="mt-4">It’s this same frustration I felt when a friend dismissed the idea of pivoting to product management by saying, “I can’t, I don’t code.” My immediate reaction was confusion: “Then learn?” The word “can’t” often isn’t an accurate assessment of possibility; it’s a self-imposed limit placed before the attempt.</p>
+    </section>
+
+    <section>
+      <p class="mt-4">For a long time, I couldn’t explain why I felt so passionate about New York City. The answer revealed itself during my second time living there: everyone drawn to NYC shares this same aversion to limitation. Symbolically, the high variation across its neighborhoods and the towering skyscrapers represent a lack of upper boundary. The beauty of New York is that it celebrates multiplicity—you can start a new job in investment banking, pursue acting on the side, and DJ at a local venue on the weekends.</p>
+    </section>
+
+    <section>
+      <p class="mt-4">Limits themselves are completely optional—the only purpose they serve is to design your system in a way that produces a more filtered result. My message isn't to condemn those who choose to have them. I believe that judicious filtering is rewarding. However, there is a critical distinction between being filtered and being constrained, and the difference depends entirely on your intention (in operations research, also known as the objective function).</p>
+    </section>
+
+    <section>
+      <p class="mt-4">Think about why you are introducing limitations: Do you want to remove the noise, or do you want to minimize uncertainty?</p>
+      <p class="mt-4">The distinction is that the desire to “remove the noise” stems from confidence in a particular goal, it is a productive approach, while wanting to “minimize uncertainty” is a result of fear of failure or ambiguity. One sharpens focus, while the other shrinks potential.</p>
+    </section>
+
+    <section>
+      <p class="mt-4">Limitations were initially created to install structure, but unstructure is where innovation flourishes. Structure is protection—it keeps systems stable and predictable. Yet, there’s a tipping point where protection transforms into complacency and, ultimately, self-constraint. Our bodies provide the perfect analogy: nerves warn us not to overextend by creating pain, much like a flinch when you touch something hot. But touching the heat isn't always bad; it depends on how you perceive it. Fire can burn, yes—but it can also forge, illuminate, or transform. The difference lies in your relationship to the discomfort.</p>
+    </section>
+
+    <section>
+      <p class="mt-4">I actually came to this realization doing planks on a Tuesday evening. I’d always believed my limit was a minute and a half. This time, I was so distracted by the music and my own thoughts that I stayed in the position without straining. When I finally looked at the timer, it was two minutes. I didn't feel constrained until I saw the time—the limit wasn't physical; it was purely cognitive.</p>
+
+      <p class="mt-4"><em>“I can’t” isn’t a fact; it’s a decision.</em></p>
+
+      <p class="mt-4">Ultimately, your relationship with limits boils down to your objective function: are you using a boundary to remove the noise, or are you seeking to minimize your personal discomfort with uncertainty? <strong>One sharpens focus, while the other shrinks potential.</strong></p>
+    </section>
+  </main>
+
+  <script src="/assets/theme.js"></script>
+</body>
+</html>
