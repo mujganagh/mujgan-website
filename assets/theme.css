@@ -7,9 +7,20 @@
   --bg-color:#1e2a47; --text-color:#d1d5db; --muted-color:#9ca3af;
   --accent-color:#eab1d6; --link-color:#c2aedb; --border-color:#6b7280; --hover:#2a395e;
 }
-.light-theme {
+/*.light-theme {
   --bg-color:#ffffff; --text-color:#1f2937; --muted-color:#6b7280;
   --accent-color:#7c3aed; --link-color:#6d28d9; --border-color:#e5e7eb; --hover:#f3f4f6;
+}*/
+.light-theme {
+  --bg-color:#ffffff;
+  --text-color:#1f2937;
+  --muted-color:#6b7280;
+
+  --accent-color:#488744; /* was purple */
+  --link-color:#488744;   /* was purple */
+
+  --border-color:#e5e7eb;
+  --hover:#f3f4f6;
 }
 
 /* Bottom-right toggle pill */

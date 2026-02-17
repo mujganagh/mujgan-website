@@ -25,145 +25,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
         onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional">
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
   </noscript>
 
   <!-- 4) shared theme tokens + pill styles -->
   <link rel="stylesheet" href="/assets/theme.css">
 
   <style>
-    /* Base */
+    /* base font stack + stabilizers */
     html, body {
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size-adjust: 0.52;
-      -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
+      font-size-adjust: 0.52;          /* stabilize relative size between fallback and Inter */
+      -webkit-text-size-adjust: 100%;  /* avoid iOS auto-zooming text */
     }
 
+    /* your page styles, using theme tokens */
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       font-weight: 300;
-      letter-spacing: -0.01em;
       line-height: 1.75;
-      font-size: 18px;
+      font-size: 24px;
     }
 
-    /* Top nav */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 16px;
-      padding: 1.15rem 2rem;
-      background-color: var(--bg-color);
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:0.875rem; padding:1rem 2rem; background-color:var(--bg-color);
     }
-
-    nav .logo {
-      font-weight: 500;
-      color: var(--accent-color);
-      letter-spacing: -0.02em;
-    }
-
+    nav .logo { font-weight:500; color:var(--accent-color); }
     nav a {
       color: var(--text-color);
-      margin-left: 1.25rem;
-      text-decoration: none;
+      margin-left: 1.5rem;
+      text-decoration:none;
       transition: color 0.2s;
     }
+    nav a:hover { color: var(--accent-color); }
 
-    nav a:hover {
-      color: var(--accent-color);
-    }
+    main { max-width:700px; margin:0 auto; padding:2rem; }
+    h1 { font-weight:500; color:var(--text-color); font-size:2rem; margin-bottom:1rem; }
+    h2 { font-weight:400; color:var(--text-color); font-size:1.5rem; margin-top:3rem; margin-bottom:1rem; }
+    .underline { text-underline-offset: 4px; text-decoration-color: var(--border-color); }
 
-    /* Layout */
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2.75rem 2rem 3.25rem;
-    }
+    main a { color:var(--link-color); text-decoration:none; transition:color .2s; }
+    main a:hover { text-decoration:underline; }
+    ul { margin-left:1.5rem; padding-left:.5rem; list-style:disc; }
 
-/* H1 spacing */
-h1{
-  font-weight: 500;
-  color: var(--text-color);
-  font-size: clamp(2.05rem, 3vw, 2.55rem);
-  line-height: 1.12;
-  margin: 0 0 0.9rem; /* slightly tighter than before */
-  letter-spacing: -0.02em;
-}
-
-/* Paragraph rhythm: use bottom margins, not top */
-.prose p{
-  margin: 0 0 1.05rem;  /* controls space between paragraphs */
-}
-
-.prose p:last-child{
-  margin-bottom: 0;     /* no extra space at end of block */
-}
-
-    /* Contact block spacing */
-    .contact {
-      margin-top: 1.35rem;
-    }
-
-    .contact .label {
-      margin: 0;
-    }
-
-    .contact .links {
-      margin: 0.55rem 0 0;
-    }
-
-    /* Section headers */
-    h2 {
-      font-weight: 450;
-      color: var(--text-color);
-      font-size: clamp(1.32rem, 2vw, 1.55rem);
-      line-height: 1.25;
-      margin: 2.6rem 0 0.85rem;
-    }
-
-    .underline {
-      text-underline-offset: 4px;
-      text-decoration-color: var(--border-color);
-    }
-
-    /* Links in content */
-    main a {
-      color: var(--link-color);
-      text-decoration: none;
-      transition: color 0.2s, text-decoration-color 0.2s;
-    }
-
-    main a:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--border-color);
-    }
-
-    /* Lists */
-    ul{
-      margin: 0.6rem 0 0;
-      padding-left: 1.15rem;
-      list-style: disc;
-    }
-
-    li{
-      margin: 0.18rem 0;     /* closer list items */
-      line-height: 1.45;     /* tighter within each item */
-    }
-
-    /* Small screen polish */
-    @media (max-width: 520px) {
-      nav { padding: 1rem 1.25rem; font-size: 15px; }
-      main { padding: 2.25rem 1.25rem 2.75rem; }
-      nav a { margin-left: 1rem; }
-      body { font-size: 17px; line-height: 1.8; }
-    }
+    /* keep the pill themed via tokens; actual styles live in /assets/theme.css */
   </style>
 
   <link rel="icon" type="image/png" href="/favicon.png">
