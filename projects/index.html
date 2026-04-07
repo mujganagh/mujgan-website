@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Mujgan Aghazada</title>
+  <meta name="description" content="Projects by Mujgan Aghazada — tools for job monitoring, personal finance, H-1B analytics, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | Mujgan Aghazada" />
+  <meta property="og:description" content="Projects by Mujgan Aghazada — tools for job monitoring, personal finance, H-1B analytics, and more." />
+  <meta property="og:url" content="https://mujganagh.com/projects/" />
+  <meta property="og:site_name" content="Mujgan Aghazada" />
   <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- 1) Set theme class ASAP -->
@@ -26,11 +32,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional"
         onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional">
   </noscript>
 
   <!-- 4) Shared theme tokens + pill styles -->
@@ -42,14 +48,16 @@
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size-adjust: 0.52;
       -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
-    /* Page styles using theme tokens */
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       font-weight: 300;
+      font-size: 18px;
       line-height: 1.75;
+      letter-spacing: -0.01em;
     }
 
     /* Top nav */
@@ -60,6 +68,7 @@
       font-size: 16px;
       padding: 1.15rem 2rem;
       background-color: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     nav .logo {
@@ -79,6 +88,11 @@
       color: var(--accent-color);
     }
 
+    nav a.active {
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
     h1 {
       font-size: 1.75rem;
       font-weight: 500;
@@ -94,6 +108,38 @@
       margin-left: 1.5rem;
       padding-left: 0.5rem;
     }
+
+    code {
+      font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.82em;
+      background: var(--hover);
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.1rem;
+    }
+
+    .tags span {
+      font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      color: var(--muted-color);
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 520px) {
+      nav { padding: 1rem 1.25rem; font-size: 15px; }
+      nav a { margin-left: 1rem; }
+      main { padding: 2.25rem 1.25rem 2.75rem; }
+      body { font-size: 17px; line-height: 1.8; }
+    }
   </style>
 </head>
 <body>
@@ -106,57 +152,73 @@
       <a href="/blog/">blog</a>
     </div>
   </nav>
+  <script>
+    (function() {
+      var path = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        var href = a.getAttribute('href').endsWith('/') ? a.getAttribute('href') : a.getAttribute('href') + '/';
+        if (path === href) a.classList.add('active');
+      });
+    })();
+  </script>
 
-  <main class="max-w-3xl mx-auto px-6 py-12">
+  <main style="max-width:700px;margin:0 auto;padding:2.75rem 2rem 3.25rem;">
     <h1 class="underline">Projects</h1>
     <p class="mb-6" style="color: var(--muted-color);">Some things I've recently been working on:</p>
 
-    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover-color)] transition">
+    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover)] transition">
       <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
         Hiresky — Automated Job Board Monitor
       </h2>
       <p class="mb-4" style="color: var(--text-color);">
-        Hiresky is an automation tool that monitors company career websites and sends real-time alerts for new job postings.
-        I built this tool because I felt that LinkedIn's postings weren't up-to-date enough, and I wanted my alerts to be highly customized, more than other tools or Github repos could offer.
-        </p>
-      <p>
-        It integrates with multiple ATS APIs, filters jobs by specific role key words and location, and notifies users through Slack.
-        The system runs automatically every morning via macOS scheduling.
+        Monitors company career pages and sends real-time Slack alerts for new job postings. Built because LinkedIn's listings lag by days — I wanted same-day awareness with filters tuned to my exact criteria.
       </p>
-      <br>
-      <p>Features:</p>
-
       <ul class="list-disc list-inside space-y-1" style="color: var(--muted-color); font-size: 0.9rem;">
         <li>Fetches live postings from Greenhouse, Lever, and Ashby APIs</li>
-        <li>Configurable filters: YAML-driven role, company, and location selectors</li>
-        <li>Tracks seen jobs in <code>state.json</code> to avoid duplicates</li>
-        <li>Sends a list of new job posting matches as a Slack message via webhooks (hyperlinked)</li>
-        <li>Uses macOS' LaunchAgents + pmset to wake and run script at 10:00 AM every day</li>
-        <li>Saves results into CSV (<code>matches.csv</code>) and logs for auditing</li>
+        <li>YAML-driven filters for role, company, and location</li>
+        <li>Deduplicates via <code>state.json</code>; logs matches to <code>matches.csv</code></li>
+        <li>Runs daily at 10 AM via macOS LaunchAgents + pmset wake scheduling</li>
+        <li>Notifies via Slack webhook with hyperlinked results</li>
       </ul>
-
-      <br>
-      <p>
-        Example snippet:
-      </p>
-        <!-- Screenshot -->
-      <div class="my-4">
-        <img src="screenshot1.png" alt="Hiresky Slack Alert Screenshot" class="rounded shadow-md" />
+      <div class="tags">
+        <span>python</span><span>greenhouse</span><span>lever</span><span>ashby</span><span>slack api</span><span>yaml</span>
       </div>
+    </article>
 
-      <p class="mt-4 italic" style="color: var(--muted-color);">
-        Impact: Eliminated manual checks across 50+ career sites, ensured same-day awareness of new postings,
-        and created a reusable framework for tracking 100+ SaaS/tech companies.
-      </p>
-      <br>
-      <p>
-        Future improvement ideas:
+    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover)] transition">
+      <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
+        Spend Analyzer — Personal Finance Dashboard
+      </h2>
+      <p class="mb-4" style="color: var(--text-color);">
+        Merges statements from multiple credit cards and bank accounts into one unified spending breakdown. Built because tracking spending across different cards in different formats was a pain.
       </p>
       <ul class="list-disc list-inside space-y-1" style="color: var(--muted-color); font-size: 0.9rem;">
-      <li>Adding Workday API</li>
-      <li>Scaling into an app/website</li>
-      <li>Making it into a Slack instead of webhook (more functionality/opportunities for customization)</li>
+        <li>Accepts CSV, PDF, or screenshot uploads from any card or bank</li>
+        <li>Built-in converter for Chase and Apple Card PDF statements</li>
+        <li>AI-powered transaction categorization and insights via Claude API</li>
+        <li>Filter by category; edit transaction labels inline</li>
+        <li>Runs entirely in the browser — no server, no data leaves your machine</li>
       </ul>
+      <div class="tags">
+        <span>html/js</span><span>claude api</span><span>pdf parsing</span>
+      </div>
+    </article>
+
+    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover)] transition">
+      <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
+        visa-insights — H-1B Sponsorship Analytics
+      </h2>
+      <p class="mb-4" style="color: var(--text-color);">
+        Dashboard for analyzing H-1B sponsorship trends using Labor Condition Application (LCA) data from the DOL. Built to help early-career candidates identify companies that actively sponsor entry-level roles.
+      </p>
+      <ul class="list-disc list-inside space-y-1" style="color: var(--muted-color); font-size: 0.9rem;">
+        <li>Computes an Early-Career Sponsorship Score (ECSS) via wage level analysis (Levels I–IV)</li>
+        <li>DuckDB-powered ETL pipeline over large LCA Excel datasets</li>
+        <li>Interactive filters by company, job title, year, and wage level</li>
+      </ul>
+      <div class="tags">
+        <span>python</span><span>streamlit</span><span>duckdb</span>
+      </div>
     </article>
   </main>
 

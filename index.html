@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mujgan Aghazada</title>
+  <meta name="description" content="Mujgan Aghazada — software and data enthusiast working on automation, analytics, and AI tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mujgan Aghazada" />
+  <meta property="og:description" content="Mujgan Aghazada — software and data enthusiast working on automation, analytics, and AI tools." />
+  <meta property="og:url" content="https://mujganagh.com/" />
+  <meta property="og:site_name" content="Mujgan Aghazada" />
 
   <!-- 1) set theme class ASAP to avoid flash -->
   <script>
@@ -61,6 +67,7 @@
       font-size: 16px;
       padding: 1.15rem 2rem;
       background-color: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     nav .logo {
@@ -78,6 +85,11 @@
 
     nav a:hover {
       color: var(--accent-color);
+    }
+
+    nav a.active {
+      color: var(--accent-color);
+      font-weight: 500;
     }
 
     /* Layout */
@@ -179,6 +191,15 @@ h1{
       <a href="/blog/">blog</a>
     </div>
   </nav>
+  <script>
+    (function() {
+      var path = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        var href = a.getAttribute('href').endsWith('/') ? a.getAttribute('href') : a.getAttribute('href') + '/';
+        if (path === href) a.classList.add('active');
+      });
+    })();
+  </script>
 
   <main>
   <h1>Hi! I'm Mujgan</h1>
@@ -186,11 +207,6 @@ h1{
   <p class="mt-4">I find fulfillment in learning by doing and wearing many hats — whether it’s scripting with Python to build data pipelines, troubleshooting in Salesforce to support teammates, or drafting solution design documents for automation.</p>
   <p class="mt-4">I’ve supported GTM teams at UiPath, presented dashboards to senior leadership at Cummins, and driven process improvements across sales and engineering. I enjoy presenting to audiences, understanding pain points, and translating technical insights into clear, actionable solutions.</p>
   <p class="mt-4">I’m excited about roles where I can combine my curiosity, problem-solving, and customer obsession.</p>
-    <!-- old writing
-    <p class="mt-4">I’m wired to find fulfillment in picking up new skills through real problems — whether it’s writing a python script on the fly to build data pipelines, analyzing salesforce metadata, or writing solution design documents for automation solutions.</p>
-    <p>i’ve supported GTM and presales teams at uipath, presented dashboards i built to senior leadership at cummins, and helped align technical tools with business needs. i enjoy presenting to audiences, understanding pain-points, and turning technical insights into actionable solutions.</p>
-    <p class="mt-4">i’m excited about roles like sales engineering and technology consulting, where i can combine my love for problem-solving, curiosity, and customer obsession to drive real impact.</p>
-    -->
     <p class="mt-4">Feel free to reach out!</p>
     <p>
       <a href="mailto:mujganagh@gmail.com">mujganagh@gmail.com</a> |

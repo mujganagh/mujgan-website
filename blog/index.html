@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Mujgan Aghazada</title>
+  <meta name="description" content="Writing by Mujgan Aghazada." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog | Mujgan Aghazada" />
+  <meta property="og:description" content="Writing by Mujgan Aghazada." />
+  <meta property="og:url" content="https://mujganagh.com/blog/" />
+  <meta property="og:site_name" content="Mujgan Aghazada" />
   <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- 1) Set theme class ASAP -->
@@ -26,11 +32,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional"
         onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=optional">
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=optional">
   </noscript>
 
   <!-- 4) Shared theme tokens + pill styles -->
@@ -42,14 +48,16 @@
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size-adjust: 0.52;
       -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
-    /* Page styles using theme tokens */
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       font-weight: 300;
+      font-size: 18px;
       line-height: 1.75;
+      letter-spacing: -0.01em;
     }
 
     /* Top nav */
@@ -60,6 +68,7 @@
       font-size: 16px;
       padding: 1.15rem 2rem;
       background-color: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     nav .logo {
@@ -79,7 +88,12 @@
       color: var(--accent-color);
     }
 
-    main { max-width: 64rem; margin: 0 auto; padding: 3rem 1.5rem; } /* ~ max-w-4xl px-6 py-12 */
+    nav a.active {
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    main { max-width: 700px; margin: 0 auto; padding: 2.75rem 2rem 3.25rem; }
 
     h1 {
       font-size: 1.75rem;
@@ -120,6 +134,13 @@
     /* Small helpers (replacing Tailwind utilities used in content) */
     .mb-8 { margin-bottom: 2rem; }
     .space-y-4 > * + * { margin-top: 1rem; }
+
+    @media (max-width: 520px) {
+      nav { padding: 1rem 1.25rem; font-size: 15px; }
+      nav a { margin-left: 1rem; }
+      main { padding: 2.25rem 1.25rem 2.75rem; }
+      body { font-size: 17px; line-height: 1.8; }
+    }
   </style>
 </head>
 <body>
@@ -132,6 +153,15 @@
       <a href="/blog/">blog</a>
     </div>
   </nav>
+  <script>
+    (function() {
+      var path = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        var href = a.getAttribute('href').endsWith('/') ? a.getAttribute('href') : a.getAttribute('href') + '/';
+        if (path === href) a.classList.add('active');
+      });
+    })();
+  </script>
 
   <main>
     <h1>blog</h1>
