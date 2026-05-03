@@ -104,6 +104,14 @@
     .photo {
       cursor: zoom-in;
       display: block;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .photo.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .photo img {
@@ -272,6 +280,24 @@
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Scroll fade-in, staggered 3 at a time
+    var photos = Array.from(document.querySelectorAll('.photo'));
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var idx = photos.indexOf(entry.target);
+          entry.target.style.transitionDelay = (idx % 3) * 120 + 'ms';
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    photos.forEach(function(photo) {
+      observer.observe(photo);
     });
 
     // Disable right-click on all images

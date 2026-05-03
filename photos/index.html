@@ -344,17 +344,21 @@
       img.addEventListener('contextmenu', function(e) { e.preventDefault(); });
     });
 
-    // Scroll fade-in
+    // Scroll fade-in, staggered 3 at a time
+    var photos = Array.from(document.querySelectorAll('.photo'));
+
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
+          var idx = photos.indexOf(entry.target);
+          entry.target.style.transitionDelay = (idx % 3) * 120 + 'ms';
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.08 });
 
-    document.querySelectorAll('.photo').forEach(function(photo) {
+    photos.forEach(function(photo) {
       observer.observe(photo);
     });
   </script>
