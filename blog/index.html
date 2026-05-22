@@ -182,9 +182,15 @@
         const container = document.getElementById('blog-list');
 
         // Sort newest first if you like (remove if your JSON is already ordered)
-        posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        const visible = posts.filter(p => !p.hidden);
+        visible.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 
-        posts.forEach(post => {
+        if (visible.length === 0) {
+          container.innerHTML = '<p style="color: var(--muted-color);">under construction — check back soon.</p>';
+          return;
+        }
+
+        visible.forEach(post => {
           // Expected keys: title, date (yyyy-mm-dd or readable), link, excerpt
           const link = post.link || '#';
           const title = post.title || 'Untitled';
