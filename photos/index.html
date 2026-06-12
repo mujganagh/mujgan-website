@@ -16,8 +16,7 @@
   <script>
     (function () {
       const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
+      const theme = saved || 'light';
       document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
     })();
   </script>
@@ -287,7 +286,6 @@
     <div class="photo" data-label=""><img src="img/photo-15.jpg" alt="Film photo" width="2902" height="1923" loading="lazy" draggable="false" /></div>
     <div class="photo" data-label=""><img src="img/photo-16.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
     <div class="photo" data-label=""><img src="img/photo-17.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-18.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
   </div>
 
   <script src="/assets/theme.js"></script>

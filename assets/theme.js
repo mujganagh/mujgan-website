@@ -5,8 +5,7 @@
              || document.documentElement.classList.contains('light-theme');
     if (has) return;
     const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'light');
+    const theme = saved || 'light';
     document.documentElement.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
   })();
 
@@ -31,10 +30,9 @@
     if (text) text.textContent = dark ? 'dark mode' : 'light mode';
   };
 
-  // Init from saved or system
+  // Init from saved preference, default to light
   const saved = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  apply(saved ? saved === 'dark' : prefersDark);
+  apply(saved ? saved === 'dark' : false);
 
   btn.addEventListener('click', () => apply(!isDark()));
 })();
