@@ -222,10 +222,34 @@
 
     #lightbox-close:hover { opacity: 1; }
 
+    .lightbox-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      width: 15%;
+      min-width: 3rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.25rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+
+    .lightbox-nav:hover { opacity: 1; }
+
+    #lightbox-prev { left: 0; justify-content: flex-start; padding-left: 1rem; }
+    #lightbox-next { right: 0; justify-content: flex-end; padding-right: 1rem; }
+
     @media (max-width: 520px) {
       nav { padding: 1rem 1.25rem; font-size: 15px; }
       nav a { margin-left: 1rem; }
       body { font-size: 17px; line-height: 1.8; }
+      .lightbox-nav { font-size: 1.75rem; width: 20%; }
     }
   </style>
 </head>
@@ -252,7 +276,9 @@
   <!-- Lightbox overlay -->
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button id="lightbox-close" aria-label="Close">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous photo">&#8249;</button>
     <img id="lightbox-img" src="" alt="" draggable="false" />
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next photo">&#8250;</button>
   </div>
 
   <div class="page-header">
@@ -261,31 +287,31 @@
   </div>
 
   <div class="masonry">
-    <div class="photo" data-label=""><img src="img/photo-01.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="In-N-Out"><img src="img/in-n-out.jpg" alt="In-N-Out" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="New York City"><img src="img/nyc.jpg" alt="New York City" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="Central Park"><img src="img/central-park.jpg" alt="Central Park" width="3024" height="2005" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="Bryant Park"><img src="img/bryant-park.jpg" alt="Bryant Park" width="3024" height="2005" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="San Diego"><img src="img/san-diego-1.jpg" alt="San Diego" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="San Diego"><img src="img/san-diego-2.jpg" alt="San Diego" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label="SoHo"><img src="img/soho.jpg" alt="SoHo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/church.jpg" alt="Church" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-02.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-03.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-04.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-05.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-06.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-07.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-08.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-09.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-10.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-11.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-12.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-13.jpg" alt="Film photo" width="3024" height="2005" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-14.jpg" alt="Film photo" width="6774" height="4492" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-15.jpg" alt="Film photo" width="2902" height="1923" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-16.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
-    <div class="photo" data-label=""><img src="img/photo-17.jpg" alt="Film photo" width="3130" height="2075" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-01.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="In-N-Out"><img src="img/in-n-out.jpg" alt="In-N-Out" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="New York City"><img src="img/nyc.jpg" alt="New York City" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="Central Park"><img src="img/central-park.jpg" alt="Central Park" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="Bryant Park"><img src="img/bryant-park.jpg" alt="Bryant Park" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="San Diego"><img src="img/san-diego-1.jpg" alt="San Diego" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="San Diego"><img src="img/san-diego-2.jpg" alt="San Diego" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label="SoHo"><img src="img/soho.jpg" alt="SoHo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/church.jpg" alt="Church" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-02.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-03.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-04.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-05.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-06.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-07.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-08.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-09.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-10.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-11.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-12.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-13.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-14.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-15.jpg" alt="Film photo" width="2000" height="1325" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-16.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
+    <div class="photo" data-label=""><img src="img/photo-17.jpg" alt="Film photo" width="2000" height="1326" loading="lazy" draggable="false" /></div>
   </div>
 
   <script src="/assets/theme.js"></script>
@@ -306,10 +332,21 @@
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbClose = document.getElementById('lightbox-close');
+    const lbPrev = document.getElementById('lightbox-prev');
+    const lbNext = document.getElementById('lightbox-next');
 
-    function openLightbox(src, alt) {
-      lbImg.src = src;
-      lbImg.alt = alt;
+    var galleryImgs = Array.from(document.querySelectorAll('.photo img'));
+    var currentIndex = -1;
+
+    function showAt(index) {
+      currentIndex = (index + galleryImgs.length) % galleryImgs.length;
+      var img = galleryImgs[currentIndex];
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+    }
+
+    function openLightbox(index) {
+      showAt(index);
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -320,21 +357,33 @@
       lbImg.src = '';
     }
 
-    document.querySelectorAll('.photo').forEach(function(photo) {
+    document.querySelectorAll('.photo').forEach(function(photo, index) {
       photo.addEventListener('click', function() {
-        var img = this.querySelector('img');
-        openLightbox(img.src, img.alt);
+        openLightbox(index);
       });
     });
 
     lb.addEventListener('click', function(e) {
-      if (e.target !== lbImg) closeLightbox();
+      if (e.target !== lbImg && e.target !== lbPrev && e.target !== lbNext) closeLightbox();
     });
 
     lbClose.addEventListener('click', closeLightbox);
 
+    lbPrev.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showAt(currentIndex - 1);
+    });
+
+    lbNext.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showAt(currentIndex + 1);
+    });
+
     document.addEventListener('keydown', function(e) {
+      if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
+      if (e.key === 'ArrowRight') showAt(currentIndex + 1);
     });
 
     // Disable right-click on all images
