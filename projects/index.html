@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Mujgan Aghazada</title>
-  <meta name="description" content="Projects by Mujgan Aghazada — tools for job monitoring, personal finance, H-1B analytics, and more." />
+  <meta name="description" content="Projects by Mujgan Aghazada — AI tools, job monitoring, personal finance, H-1B analytics, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Projects | Mujgan Aghazada" />
-  <meta property="og:description" content="Projects by Mujgan Aghazada — tools for job monitoring, personal finance, H-1B analytics, and more." />
+  <meta property="og:description" content="Projects by Mujgan Aghazada — AI tools, job monitoring, personal finance, H-1B analytics, and more." />
   <meta property="og:url" content="https://mujganagh.com/projects/" />
   <meta property="og:site_name" content="Mujgan Aghazada" />
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -164,6 +164,25 @@
   <main style="max-width:700px;margin:0 auto;padding:2.75rem 2rem 3.25rem;">
     <h1 class="underline">Projects</h1>
     <p class="mb-6" style="color: var(--muted-color);">Some things I've recently been working on:</p>
+
+    <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover)] transition">
+      <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
+        Spotify Subgenre Analyzer — AI Music Taste Insights
+      </h2>
+      <p class="mb-4" style="color: var(--text-color);">
+        Turns live Spotify listening history into a conversational music analytics tool. Built to understand which subgenres I actually lean toward, what is changing in my rotation, and which artists or tracks are driving those shifts.
+      </p>
+      <ul class="list-disc list-inside space-y-1" style="color: var(--muted-color); font-size: 0.9rem;">
+        <li>Authenticates with Spotify OAuth and analyzes top artists, top tracks, recently played history, and genre metadata</li>
+        <li>Generates a listening snapshot with top genres, trend movement, recent tracks, and current top artists</li>
+        <li>Streams Gemini responses grounded in real Spotify data for natural-language questions about music taste</li>
+        <li>Handles token refresh, Spotify API errors, missing genre data, rate limits, and user-friendly recovery states</li>
+        <li>Renders readable AI responses with Markdown support and a responsive chat-focused interface</li>
+      </ul>
+      <div class="tags">
+        <span>next.js</span><span>typescript</span><span>spotify api</span><span>nextauth</span><span>gemini api</span><span>tailwind</span>
+      </div>
+    </article>
 
     <article class="mb-8 border border-[color:var(--border-color)] rounded-lg p-6 hover:bg-[color:var(--hover)] transition">
       <h2 class="text-xl font-semibold" style="color: var(--accent-color); margin-bottom: 0.75rem;">
